@@ -4,11 +4,23 @@ import './index.css';
 import './App.css';
 import reportWebVitals from './reportWebVitals';
 import Component from './components/first_component';
+import Second from './components/second_component';
+import Button from './components/button';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <div>
-    <Component/>
+    <Component title="Manola"/>
+    <Component title="Veron"/>
+    <Component title="Manola"/>
+    <Second/>
+    <Button/>
+    <Button text="botonsote"/>
+    
+    
+  
+
+    
 </div>
 );
 

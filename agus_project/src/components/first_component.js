@@ -1,10 +1,11 @@
 import React from 'react';
 
 
-function first_Component() {
+function first_Component({title="loquito"}) {
+    console.log(title);
     return (
     <h1>
-        Soy el primer component
+        Hola {title}
      </h1>
     );
   }
