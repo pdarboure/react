@@ -30,7 +30,8 @@ export default function App() {
   const [imageUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random")
+    fetch("http://localhost:3007/api/products")
+  
       .then((response) => response.json())
       .then((dog) => {
         setImageUrl(dog.message);
@@ -40,7 +41,7 @@ export default function App() {
 
   const fetchRandomDog = () => { /* ⬅️ función para obtener un perrito aleatorio */
     setIsLoading(true);
-    fetch("https://dog.ceo/api/breeds/image/random")
+    fetch("http://localhost:3007/api/products")
       .then((response) => response.json())
       .then((dog) => {
         setImageUrl(dog.message);
