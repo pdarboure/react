@@ -5,6 +5,7 @@ import './App.css';
 import reportWebVitals from './reportWebVitals';
 import Component from './components/first_component';
 import Second from './components/second_component';
+import Products from './components/fetch2';
 // import MyComponent from './components/fetch';
 
 import Button from './components/button';
@@ -17,6 +18,7 @@ root.render(
     <Component title="Veron"/>
     <Component title="Manola"/>
     <App/>
+    <Products/>
     <Second/>
     <Button/>
     <Button text="botonsote"/>
