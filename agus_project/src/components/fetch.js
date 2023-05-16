@@ -30,7 +30,7 @@ export default function App() {
   const [imageUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3007/api/products")
+    fetch("https://dog.ceo/api/breeds/image/random")
   
       .then((response) => response.json())
       .then((dog) => {

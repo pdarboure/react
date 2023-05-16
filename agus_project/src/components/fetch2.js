@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const API = 'http://localhost:3004/api/product'
+const API = 'http://localhost:3007/api/products'
 
 export default function Products() {
     const [ products, setProducts ] = useState([]) 
@@ -19,18 +19,22 @@ export default function Products() {
 
     return (
       <>
-        <h3>Estos son todos los productos</h3>
-        {products.length == 0 && <p>Cargando la chucha ...</p>}
-        { <p>Total de Productos: {products.total} </p> }
+        <h3> productos</h3>
+  {
+    products.data?.map(product=>{
+      return (
+        <div key={product.id}>
+          <p>{product.name}</p>
+          <p>{product.price}</p>
+          <img src={"http://localhost:3007/images/products/" + product.image}/> 
+        </div>
+      )
+    })
+
+  }
+
         
-        {products.data?.map( (product, i) => {
-            return (
-              <div key={product.name + i}>
-                <p>{product.name}</p>
-              </div>
-            )
-          })
-        }
+    
       </>
     )
   }
