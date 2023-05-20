@@ -22,7 +22,6 @@
 //   }
 
 // export default MyComponent;
-
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -31,7 +30,6 @@ export default function App() {
 
   useEffect(() => {
     fetch("https://dog.ceo/api/breeds/image/random")
-  
       .then((response) => response.json())
       .then((dog) => {
         setImageUrl(dog.message);
@@ -39,7 +37,21 @@ export default function App() {
       });
   }, []);
 
-  const fetchRandomDog = () => { /* ⬅️ función para obtener un perrito aleatorio */
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === "Enter") {
+        fetchRandomDog();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+
+  const fetchRandomDog = () => {
     setIsLoading(true);
     fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => response.json())
@@ -60,7 +72,7 @@ export default function App() {
   return (
     <div className="App">
       <img src={imageUrl} alt="Imagen de perrito aleatoria" />
-      <button onClick={fetchRandomDog}> {/* ⬅️ llamarla cuando hagamos clic */} <br></br>
+      <button onClick={fetchRandomDog}>
         ¡Otro!{" "}
         <span role="img" aria-label="corazón">
           ❤️
